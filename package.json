@@ -1,0 +1,20 @@
+{
+  "name": "protractor-study",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "protractor tests/e2e/protractor.conf.js --verbose",
+    "wd:clean": "webdriver-manager clean",
+    "wd:update": "cross-env NODE_TLS_REJECT_UNAUTHORIZED=0 webdriver-manager update",
+    "wd:start": "cross-env NODE_TLS_REJECT_UNAUTHORIZED=0 webdriver-manager start"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "cross-env": "^7.0.2",
+    "protractor": "^7.0.0",
+    "webdriver-manager": "^12.1.7"
+  }
+}
