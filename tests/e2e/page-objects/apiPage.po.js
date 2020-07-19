@@ -5,6 +5,7 @@ var ApiPage = function () {
 };
 
 ApiPage.prototype.visit = function () {
+  browser.waitForAngularEnabled(true);
   browser.get("#/api");
 };
 

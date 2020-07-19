@@ -16,6 +16,7 @@
     "cross-env": "^7.0.2",
     "node-uuid": "^1.4.8",
     "protractor": "^7.0.0",
+    "shortid": "^2.2.15",
     "webdriver-manager": "^12.1.7"
   }
 }

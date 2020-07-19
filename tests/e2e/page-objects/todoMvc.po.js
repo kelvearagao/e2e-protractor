@@ -11,6 +11,7 @@ TodoMvc.prototype.addItemOnTodoList = function (item) {
 };
 
 TodoMvc.prototype.visit = function () {
+  browser.waitForAngularEnabled(true);
   browser.get("http://todomvc.com/examples/angularjs/#/");
 };
 

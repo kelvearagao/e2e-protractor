@@ -1,9 +1,10 @@
 var chokoCreateAccountPage = function () {
-  this.createAccountButton = element(by.id("element-create-account-submit"));
+  this.createAccountButton = element(by.id("submit-button"));
 };
 
-chokoCreateAccountPage.prototype.visit = function () {
-  browser.get("http://choko.org/create-account");
+chokoCreateAccountPage.prototype.visit = async function () {
+  await browser.waitForAngularEnabled(false);
+  await browser.get("https://stackoverflow.com/users/signup");
 };
 
 module.exports = chokoCreateAccountPage;

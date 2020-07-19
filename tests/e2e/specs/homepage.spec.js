@@ -1,5 +1,6 @@
 describe("Homepage", function () {
   it("perform a search into the api page", function () {
+    browser.waitForAngularEnabled(true);
     browser.get("#/api");
 
     element(by.model("searchTerm")).sendKeys("restart");
