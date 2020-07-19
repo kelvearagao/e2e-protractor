@@ -14,6 +14,7 @@
   "license": "ISC",
   "devDependencies": {
     "cross-env": "^7.0.2",
+    "node-uuid": "^1.4.8",
     "protractor": "^7.0.0",
     "webdriver-manager": "^12.1.7"
   }

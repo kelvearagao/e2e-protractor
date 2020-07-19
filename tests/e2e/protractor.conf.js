@@ -6,5 +6,3 @@ module.exports.config = {
   specs: ["specs/*.spec.js"],
   baseUrl: "http://www.protractortest.org/",
 };
-
-// https://cadastro-xpi-hml.azurewebsites.net/

@@ -1,6 +1,8 @@
+var Helper = require("../helper");
 var TodoMvc = require("../page-objects/todoMvc.po.js");
 
 describe("Todo MVC Angular", function () {
+  var helper = new Helper();
   var todoMvc = new TodoMvc();
 
   beforeAll(() => {
@@ -19,5 +21,12 @@ describe("Todo MVC Angular", function () {
   it("add new item in the todo list", function () {
     todoMvc.addItemOnTodoList("Create new test without page object");
     expect(todoMvc.listOfItems.count()).toEqual(2);
+  });
+
+  it("add a random value in the todo list", function () {
+    var randomString = helper.generateRandomString();
+    todoMvc.addItemOnTodoList(randomString);
+
+    expect(todoMvc.listOfItems.getText()).toContain(randomString);
   });
 });
