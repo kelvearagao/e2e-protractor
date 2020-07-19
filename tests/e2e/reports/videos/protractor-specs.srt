@@ -1,0 +1,48 @@
+1
+00:00:00,001 --> 00:00:02,375
+<font color="green">SUCCESS</font> try to sign in without filling any field
+
+2
+00:00:02,375 --> 00:00:04,062
+<font color="green">SUCCESS</font> try to sign in with a random email and random password
+
+3
+00:00:04,062 --> 00:00:09,953
+<font color="red">FAILED</font> try to sign in with a random email and random password - refactored
+
+4
+00:00:09,953 --> 00:00:11,045
+<font color="green">SUCCESS</font> try to sign in just filling the email field
+
+5
+00:00:11,046 --> 00:00:12,335
+<font color="green">SUCCESS</font> try to create account without filling any field
+
+6
+00:00:12,336 --> 00:00:13,947
+<font color="green">SUCCESS</font> perform a search into the api page
+
+7
+00:00:13,948 --> 00:00:15,070
+<font color="green">SUCCESS</font> perform a search into the api page
+
+8
+00:00:15,071 --> 00:00:17,509
+<font color="green">SUCCESS</font> add an item in the todo list
+
+9
+00:00:17,509 --> 00:00:18,614
+<font color="green">SUCCESS</font> add new item in the todo list
+
+10
+00:00:18,907 --> 00:00:19,776
+<font color="green">SUCCESS</font> add an item in the todo list
+
+11
+00:00:19,776 --> 00:00:20,873
+<font color="green">SUCCESS</font> add new item in the todo list
+
+12
+00:00:20,873 --> 00:00:22,022
+<font color="green">SUCCESS</font> add a random value in the todo list
+

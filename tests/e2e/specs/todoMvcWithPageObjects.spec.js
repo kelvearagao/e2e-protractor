@@ -1,30 +1,30 @@
-var Helper = require("../helper");
-var TodoMvc = require("../page-objects/todoMvc.po.js");
+const Helper = require("../helper");
+const TodoMvc = require("../page-objects/todoMvc.po.js");
 
-describe("Todo MVC Angular", function () {
-  var helper = new Helper();
-  var todoMvc = new TodoMvc();
+describe("Todo MVC Angular", () => {
+  const helper = new Helper();
+  const todoMvc = new TodoMvc();
 
   beforeAll(() => {
     browser.executeScript("window.localStorage.clear();");
   });
 
-  beforeEach(function () {
+  beforeEach(() => {
     todoMvc.visit();
   });
 
-  it("add an item in the todo list", function () {
+  it("add an item in the todo list", () => {
     todoMvc.addItemOnTodoList("Create test without page object");
     expect(todoMvc.listOfItems.count()).toEqual(1);
   });
 
-  it("add new item in the todo list", function () {
+  it("add new item in the todo list", () => {
     todoMvc.addItemOnTodoList("Create new test without page object");
     expect(todoMvc.listOfItems.count()).toEqual(2);
   });
 
-  it("add a random value in the todo list", function () {
-    var randomString = helper.generateRandomString();
+  it("add a random value in the todo list", () => {
+    const randomString = helper.generateRandomString();
     todoMvc.addItemOnTodoList(randomString);
 
     expect(todoMvc.listOfItems.getText()).toContain(randomString);
