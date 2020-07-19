@@ -1,14 +1,15 @@
-var CreateAccountPage = require("../page-objects/chokoCreateAccount.po.js");
-var MessagesWrapper = require("../page-objects/chokoMessagesWrapper.po.js");
-var SignInPage = require("../page-objects/chokoSignIn.po.js");
-var Helper = require("../helper");
+const CreateAccountPage = require("../page-objects/chokoCreateAccount.po.js");
+const MessagesWrapper = require("../page-objects/chokoMessagesWrapper.po.js");
+const SignInPage = require("../page-objects/chokoSignIn.po.js");
+const Helper = require("../helper");
 const { element } = require("protractor");
 
-var EC = protractor.ExpectedConditions;
-var messageWrapper = new MessagesWrapper();
+const EC = protractor.ExpectedConditions;
+const messageWrapper = new MessagesWrapper();
+const helper = new Helper();
 
-describe("Choko - Sign in", function () {
-  var signInPage = new SignInPage();
+describe("Choko - Sign in", () => {
+  const signInPage = new SignInPage();
 
   it("try to sign in without filling any field", async () => {
     await signInPage.visit();
@@ -30,9 +31,8 @@ describe("Choko - Sign in", function () {
   });
 
   it("try to sign in with a random email and random password", async () => {
-    var helper = new Helper();
-    var randomEmail = helper.generateRandomEmail();
-    var randomPassword = helper.generateRandomString();
+    const randomEmail = helper.generateRandomEmail();
+    const randomPassword = helper.generateRandomString();
 
     await signInPage.visit();
     const el = messageWrapper.errorMessage.get(0);
@@ -44,12 +44,38 @@ describe("Choko - Sign in", function () {
 
     expect(el.getText()).toContain("The email or password is incorrect.");
   });
+
+  it("try to sign in with a random email and random password - refactored", async () => {
+    const randomEmail = helper.generateRandomEmail();
+    const randomPassword = helper.generateRandomString();
+    const el = messageWrapper.errorMessage.get(0);
+
+    await signInPage.visit();
+    signInPage.signIn(randomEmail, randomPassword);
+    browser.wait(EC.visibilityOf(el), 5000);
+
+    expect(el.isDisplayed()).toBe(true);
+  });
+
+  it("try to sign in just filling the email field", async () => {
+    const randomEmail = helper.generateRandomEmail();
+    const el = messageWrapper.errorMessage.get(1);
+
+    await signInPage.visit();
+
+    signInPage.usernameField.sendKeys(randomEmail);
+    signInPage.signInButton.click();
+
+    helper.waitElementVisibility(el);
+
+    expect(el.isDisplayed()).toBe(true);
+  });
 });
 
-describe("Choko - Create account", function () {
-  var createAccountPage = new CreateAccountPage();
+describe("Choko - Create account", () => {
+  const createAccountPage = new CreateAccountPage();
 
-  it("try to create account without filling any field", async function () {
+  it("try to create account without filling any field", async () => {
     await createAccountPage.visit();
     createAccountPage.createAccountButton.click();
     const el = messageWrapper.errorMessage.get(1);

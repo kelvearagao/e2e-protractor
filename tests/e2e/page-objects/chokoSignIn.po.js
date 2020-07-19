@@ -9,4 +9,10 @@ ChokoSignInPage.prototype.visit = async function () {
   await browser.get("https://stackoverflow.com/users/login");
 };
 
+ChokoSignInPage.prototype.signIn = function (email, password) {
+  this.usernameField.sendKeys(email);
+  this.passwordField.sendKeys(password);
+  this.signInButton.click();
+};
+
 module.exports = ChokoSignInPage;
